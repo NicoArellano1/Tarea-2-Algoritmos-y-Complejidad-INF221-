@@ -1,5 +1,13 @@
-\begin{mdframed}
-    \textbf{La extensión máxima para esta sección es de media página.}
-\end{mdframed}
+El entorno experimental utilizado para la ejecución y medición de los algoritmos implementados es el siguiente:
 
-Especifique el hardware y software utilizado para realizar los experimentos (por ejemplo, procesador, memoria RAM, sistema operativo, compilador y versión). Incluya una mención breve de los datasets utilizados, los cuales son los descritos en el enunciado de la tarea.
+\begin{itemize}
+    \item CPU: Intel(R) Core(TM) i5-7300HQ CPU @ 2.50GHz
+    \item Memoria RAM: 8GiB + 4 GiB DDR4, ambas a una velocidad de 2400 MT/s
+    \item Sistema Operativo: Fedora 44 con escritorio KDE Plasma
+    \item Visual Studio Code para la escritura de código
+    \item Se usaron los lenguajes de programación Python 3.12.6 y C++ (g++ (GCC) 16.1.1 20260515 (Red Hat 16.1.1-2))
+\end{itemize}
+
+Los casos de prueba fueron generados automáticamente mediante el script \texttt{testcases\_generator.py}, ubicado en \texttt{code/implementation/scripts/}. Se generaron casos de tres tamaños: pequeños ($n \in \{3, 5, 8\}$), medianos ($n \in \{20, 40, 80\}$) y grandes ($n \in \{100, 150, 200\}$), con 3 instancias aleatorias por tamaño. Adicionalmente, se generaron casos controlados variando individualmente cada parámetro del problema: cantidad de animes ($n$), minutos disponibles ($M$), energía disponible ($E$) y capítulos por anime ($q$), manteniendo los demás fijos.
+
+Las mediciones de tiempo se realizaron con \texttt{chrono::high\_resolution\_clock} en microsegundos y la memoria se midió leyendo \texttt{/proc/self/status} (campo \texttt{VmRSS}). Los gráficos fueron generados automáticamente con el script \texttt{plot\_generator.py} y se encuentran en \texttt{code/implementation/data/plots/}.
