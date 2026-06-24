@@ -1,3 +1,20 @@
+/*
+ * Algoritmo: Greedy 1 - Ordenar por bono de completacion
+ *
+ * Descripcion:
+ * Heuristica greedy que ordena los animes de mayor a menor bono de
+ * completacion y para cada anime ve sus capitulos en orden mientras
+ * quepan en tiempo y energia. Es suboptima porque ignora el costo
+ * individual de cada capitulo al momento de priorizar.
+ *
+ * Complejidad temporal: O(n log n + n * q_max)
+ * Complejidad espacial: O(n)
+ *
+ * Referencias:
+ * - Kleinberg, J. y Tardos, E. "Algorithm Design". Cap 4: Greedy Algorithms.
+ * - Material de clases INF-221 2026-1
+ */
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

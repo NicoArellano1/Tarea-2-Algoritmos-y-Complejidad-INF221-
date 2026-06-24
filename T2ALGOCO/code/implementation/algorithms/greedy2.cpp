@@ -1,3 +1,22 @@
+/*
+ * Algoritmo: Greedy 2 - Criterio de mayor ratio v/(t+c)
+ *
+ * Descripcion:
+ * Heuristica greedy que en cada paso selecciona el siguiente capitulo
+ * disponible de cualquier anime que maximice el ratio v/(t+c), donde
+ * v es la satisfaccion, t el tiempo y c la energia. Usa un puntero
+ * por anime para respetar la restriccion de prefijos consecutivos.
+ * Es suboptima porque toma decisiones locales sin considerar el futuro.
+ *
+ * Complejidad temporal: O(Q^2) donde Q es el total de capitulos
+ * Complejidad espacial: O(n)
+ *
+ * Referencias:
+ * - Kleinberg, J. y Tardos, E. "Algorithm Design". Cap 4: Greedy Algorithms.
+ * - Dantzig, G. "Discrete Variable Extremum Problems", 1957.
+ * - Material de clases INF-221 2026-1
+ */
+
 #include <iostream>
 #include <vector>
 using namespace std;

@@ -1,3 +1,15 @@
+/* 
+ * Programa principal que lee los casos de prueba, corre todos los algoritmos
+ * y guarda los resultados de tiempo, memoria y satisfaccion en archivos CSV.
+ * 
+ * Para medir tiempo use chrono de C++ en microsegundos.
+ * Para memoria lei /proc/self/status que entrega el uso de RAM del proceso.
+ * 
+ * Referencias:
+ * - cppreference.com para uso de chrono y filesystem
+ * - Material de clases INF-221 2026-1
+ */
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -10,7 +22,7 @@ extern long long mejor_g1;
 extern long long mejor_g2;
 extern long long mejor_dp;
 
-// Llamadas a las funciones en el general para invocarlas 
+// Llamadas a las funciones en el general para invocarlas en el main!
 void brute_force(int i, int n, int tiempo_restante, int energia_restante,
                  long long sat_actual, int q[], int t[][30], int c[][30],
                  long long v[][30], long long b[]);
@@ -24,6 +36,7 @@ void greedy2(int n, int M, int E, int q[], int t[][30], int c[][30],
 void dynamic_programming(int n, int M, int E, int q[], int t[][30], int c[][30],
                          long long v[][30], long long b[]);
 
+// Funcion pequeñita obtener memoria en kb
 long long obtener_memoria_kb() {
     ifstream status("/proc/self/status");
     string linea;
@@ -37,6 +50,7 @@ long long obtener_memoria_kb() {
     return 0;
 }
 
+// Funcion para leer los archivos
 void leer_archivo(string path, int &n, int &M, int &E, string nombres[],
                   int q[], long long b[], int t[][30], int c[][30], long long v[][30]) {
     ifstream archivo(path);
@@ -106,7 +120,7 @@ int main() {
     med << "algoritmo,n,caso,tiempo_us,memoria_kb\n";
     out << "algoritmo,n,caso,resultado\n";
 
-    // Casos originales
+    // CASOS ORIGINALES
     int pequeños[] = {3, 5, 8};
     for (int tam : pequeños) {
         for (int i = 0; i < 3; i++) {
@@ -123,28 +137,28 @@ int main() {
         }
     }
 
-    // Casos controlados: variar n
+    // CASOS CONTROLADOS PARA VARIAR: n
     int ns[] = {10, 20, 40, 60, 80, 100, 120, 150, 200};
     for (int vn : ns) {
         string path = "data/testcases/control_n_" + to_string(vn) + ".txt";
         correr_todos(path, "ctrl_n_" + to_string(vn), 0, med, out, n, M, E, nombres, q, b, t, c, v, false);
     }
 
-    // Casos controlados: variar M
+    // CASOS CONTROLADOS PARA VARIAR: M
     int Ms[] = {500, 1000, 1500, 2000, 2500, 3000};
     for (int vM : Ms) {
         string path = "data/testcases/control_M_" + to_string(vM) + ".txt";
         correr_todos(path, "ctrl_M_" + to_string(vM), 0, med, out, n, M, E, nombres, q, b, t, c, v, false);
     }
 
-    // Casos controlados: variar E
+    // CASOS CONTROLADOS PARA VARIAR: E
     int Es[] = {100, 200, 300, 400, 500};
     for (int vE : Es) {
         string path = "data/testcases/control_E_" + to_string(vE) + ".txt";
         correr_todos(path, "ctrl_E_" + to_string(vE), 0, med, out, n, M, E, nombres, q, b, t, c, v, false);
     }
 
-    // Casos controlados: variar q
+    // CASOS CONTROLADOS PARA VARIAR: q
     int qs[] = {5, 10, 15, 20, 25, 30};
     for (int vq : qs) {
         string path = "data/testcases/control_q_" + to_string(vq) + ".txt";

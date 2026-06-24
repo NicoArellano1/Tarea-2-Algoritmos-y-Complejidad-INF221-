@@ -1,3 +1,10 @@
+# Lee los archivos CSV de mediciones y genera graficos PNG en data/plots/.
+# Compara tiempo de ejecucion, uso de memoria y calidad de solucion entre algoritmos.
+#
+# Referencias:
+# - Documentacion de pandas: pandas.pydata.org
+# - Documentacion de matplotlib: matplotlib.org
+
 import pandas as pd
 import matplotlib.pyplot as plt
 import os

@@ -1,3 +1,23 @@
+/*
+ * Algoritmo: Programacion Dinamica (Bottom-Up)
+ *
+ * Descripcion:
+ * Resuelve el problema AniMarathon de forma optima mediante una tabla
+ * dp[m][e] donde dp[m][e] representa la maxima satisfaccion obtenible
+ * con exactamente m minutos y e energia disponibles. Para cada anime
+ * se calculan los acumulados de tiempo, energia y satisfaccion por
+ * prefijo, y se actualiza la tabla recorriendo de mayor a menor para
+ * evitar usar el mismo anime mas de una vez.
+ *
+ * Complejidad temporal: O(n * q_max * M * E)
+ * Complejidad espacial: O(M * E) por la tabla dp
+ *
+ * Referencias:
+ * - Cormen, T. et al. "Introduction to Algorithms", 3ra ed. Cap 15.
+ * - Kellerer, H. et al. "Knapsack Problems". Springer, 2004.
+ * - Material de clases INF-221 2026-1
+ */
+
 #include <iostream>
 using namespace std;
 

@@ -1,9 +1,15 @@
+# Genera casos de prueba aleatorios y controlados para el problema AniMarathon.
+# Los archivos se guardan en data/testcases/ con el formato requerido.
+#
+# Referencias:
+# - Documentacion de Python random: docs.python.org/3/library/random.html
+
 import random
 import os
 
 os.makedirs("../data/testcases", exist_ok=True)
 
-# ── Casos originales (random) ─────────────────────────────────────────────────
+# CASOS ORIGINALES
 tamaños = [3, 5, 8, 20, 40, 80, 100, 150, 200]
 casos_por_tamaño = 3
 
@@ -24,7 +30,7 @@ for n in tamaños:
                     v = random.randint(1, 1000000000)
                     f.write(f"{t} {c} {v}\n")
 
-# ── Casos controlados: variar n ───────────────────────────────────────────────
+# CASOS PARA VARIAR: n
 M_fijo, E_fijo, q_fijo = 1500, 250, 10
 for n in [10, 20, 40, 60, 80, 100, 120, 150, 200]:
     nombre_archivo = f"../data/testcases/control_n_{n}.txt"
@@ -35,7 +41,7 @@ for n in [10, 20, 40, 60, 80, 100, 120, 150, 200]:
             for k in range(q_fijo):
                 f.write(f"{random.randint(1, 300)} {random.randint(1, 100)} {random.randint(1, 1000000000)}\n")
 
-# ── Casos controlados: variar M ───────────────────────────────────────────────
+# CASOS PARA VARIAR: M
 n_fijo, E_fijo2, q_fijo2 = 50, 250, 10
 for M in [500, 1000, 1500, 2000, 2500, 3000]:
     nombre_archivo = f"../data/testcases/control_M_{M}.txt"
@@ -46,7 +52,7 @@ for M in [500, 1000, 1500, 2000, 2500, 3000]:
             for k in range(q_fijo2):
                 f.write(f"{random.randint(1, 300)} {random.randint(1, 100)} {random.randint(1, 1000000000)}\n")
 
-# ── Casos controlados: variar E ───────────────────────────────────────────────
+# CASOS PARA VARIAR: E
 n_fijo2, M_fijo2, q_fijo3 = 50, 1500, 10
 for E in [100, 200, 300, 400, 500]:
     nombre_archivo = f"../data/testcases/control_E_{E}.txt"
@@ -57,7 +63,7 @@ for E in [100, 200, 300, 400, 500]:
             for k in range(q_fijo3):
                 f.write(f"{random.randint(1, 300)} {random.randint(1, 100)} {random.randint(1, 1000000000)}\n")
 
-# ── Casos controlados: variar q ───────────────────────────────────────────────
+# CASOS PARA VARIAR: q
 n_fijo3, M_fijo3, E_fijo3 = 50, 1500, 250
 for q_max in [5, 10, 15, 20, 25, 30]:
     nombre_archivo = f"../data/testcases/control_q_{q_max}.txt"
@@ -67,5 +73,3 @@ for q_max in [5, 10, 15, 20, 25, 30]:
             f.write(f"anime_{j} {q_max} {random.randint(0, 1000000000)}\n")
             for k in range(q_max):
                 f.write(f"{random.randint(1, 300)} {random.randint(1, 100)} {random.randint(1, 1000000000)}\n")
-
-print("Casos de prueba generados en data/testcases/")

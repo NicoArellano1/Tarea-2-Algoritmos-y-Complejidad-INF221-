@@ -1,3 +1,20 @@
+/*
+ * Algoritmo: Fuerza Bruta (Backtracking)
+ *
+ * Descripcion:
+ * Resuelve el problema AniMarathon mediante busqueda exhaustiva.
+ * Para cada anime decide recursivamente cuantos capitulos ver (0 a q[i]),
+ * explorando todas las combinaciones posibles y podando ramas que excedan
+ * los limites de tiempo o energia.
+ *
+ * Complejidad temporal: O((q_max + 1)^n) en el peor caso
+ * Complejidad espacial: O(n) por la pila de recursion
+ *
+ * Referencias:
+ * - Cormen, T. et al. "Introduction to Algorithms", 3ra ed. Cap 15.
+ * - Material de clases INF-221 2026-1
+ */
+
 #include <iostream>
 #include <vector>
 using namespace std;
